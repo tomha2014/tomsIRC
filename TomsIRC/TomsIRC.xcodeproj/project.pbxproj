@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020A7D9E22528DE200675282 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7D9D22528DE200675282 /* Notifications.swift */; };
 		029D5A77225255F800CAB0D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A76225255F800CAB0D1 /* AppDelegate.swift */; };
 		029D5A7C225255F800CAB0D1 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A7B225255F800CAB0D1 /* MasterViewController.swift */; };
 		029D5A7E225255F800CAB0D1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A7D225255F800CAB0D1 /* DetailViewController.swift */; };
@@ -32,6 +33,9 @@
 		029D5ADC22525EC600CAB0D1 /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5AD622525EC600CAB0D1 /* Event+CoreDataClass.swift */; };
 		029D5ADD22525EC600CAB0D1 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5AD722525EC600CAB0D1 /* Event+CoreDataProperties.swift */; };
 		029D5ADF2252786100CAB0D1 /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5ADE2252786100CAB0D1 /* ChannelTableViewCell.swift */; };
+		1ED193DAFB1D0CC15074CA6E /* Pods_TomsIRC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D11D70660493567A40F419F /* Pods_TomsIRC.framework */; };
+		825CBA75C6AF341839C60420 /* Pods_TomsIRCUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E593A2C5550E62B9AEE75A4D /* Pods_TomsIRCUITests.framework */; };
+		A326947082A179769DE92BF1 /* Pods_TomsIRCTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E10A7E6A12A9C997680FED /* Pods_TomsIRCTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		020A7D9D22528DE200675282 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		029D5A73225255F800CAB0D1 /* TomsIRC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomsIRC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029D5A76225255F800CAB0D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		029D5A79225255F800CAB0D1 /* TomsIRC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TomsIRC.xcdatamodel; sourceTree = "<group>"; };
@@ -83,6 +88,15 @@
 		029D5AD622525EC600CAB0D1 /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
 		029D5AD722525EC600CAB0D1 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		029D5ADE2252786100CAB0D1 /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
+		071C272FB7DB1CD1645F3B75 /* Pods-TomsIRCUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomsIRCUITests.debug.xcconfig"; path = "Target Support Files/Pods-TomsIRCUITests/Pods-TomsIRCUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		584B5097EE2B5C8DDBFCF0E0 /* Pods-TomsIRC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomsIRC.debug.xcconfig"; path = "Target Support Files/Pods-TomsIRC/Pods-TomsIRC.debug.xcconfig"; sourceTree = "<group>"; };
+		7D11D70660493567A40F419F /* Pods_TomsIRC.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TomsIRC.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		87FE670001E5AF1B33139316 /* Pods-TomsIRC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomsIRC.release.xcconfig"; path = "Target Support Files/Pods-TomsIRC/Pods-TomsIRC.release.xcconfig"; sourceTree = "<group>"; };
+		B7404BD25F9C6FDE57B80A0D /* Pods-TomsIRCUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomsIRCUITests.release.xcconfig"; path = "Target Support Files/Pods-TomsIRCUITests/Pods-TomsIRCUITests.release.xcconfig"; sourceTree = "<group>"; };
+		D9E692AAD857073D8B88291D /* Pods-TomsIRCTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomsIRCTests.release.xcconfig"; path = "Target Support Files/Pods-TomsIRCTests/Pods-TomsIRCTests.release.xcconfig"; sourceTree = "<group>"; };
+		E1E10A7E6A12A9C997680FED /* Pods_TomsIRCTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TomsIRCTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E593A2C5550E62B9AEE75A4D /* Pods_TomsIRCUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TomsIRCUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E665DA25908B22852BFA64E6 /* Pods-TomsIRCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TomsIRCTests.debug.xcconfig"; path = "Target Support Files/Pods-TomsIRCTests/Pods-TomsIRCTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ED193DAFB1D0CC15074CA6E /* Pods_TomsIRC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A326947082A179769DE92BF1 /* Pods_TomsIRCTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				825CBA75C6AF341839C60420 /* Pods_TomsIRCUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +134,8 @@
 				029D5A8F225255F900CAB0D1 /* TomsIRCTests */,
 				029D5A9A225255F900CAB0D1 /* TomsIRCUITests */,
 				029D5A74225255F800CAB0D1 /* Products */,
+				034DF9A3DF78D38AD6EFE130 /* Pods */,
+				B65B67E9829788D07E7E3687 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -175,6 +194,7 @@
 				029D5AAD225256FE00CAB0D1 /* UserDefaults.swift */,
 				029D5AAE225256FE00CAB0D1 /* UIViewController.swift */,
 				029D5AAF225256FE00CAB0D1 /* StringExtension.swift */,
+				020A7D9D22528DE200675282 /* Notifications.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -211,6 +231,29 @@
 			path = CustomCells;
 			sourceTree = "<group>";
 		};
+		034DF9A3DF78D38AD6EFE130 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				584B5097EE2B5C8DDBFCF0E0 /* Pods-TomsIRC.debug.xcconfig */,
+				87FE670001E5AF1B33139316 /* Pods-TomsIRC.release.xcconfig */,
+				E665DA25908B22852BFA64E6 /* Pods-TomsIRCTests.debug.xcconfig */,
+				D9E692AAD857073D8B88291D /* Pods-TomsIRCTests.release.xcconfig */,
+				071C272FB7DB1CD1645F3B75 /* Pods-TomsIRCUITests.debug.xcconfig */,
+				B7404BD25F9C6FDE57B80A0D /* Pods-TomsIRCUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B65B67E9829788D07E7E3687 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7D11D70660493567A40F419F /* Pods_TomsIRC.framework */,
+				E1E10A7E6A12A9C997680FED /* Pods_TomsIRCTests.framework */,
+				E593A2C5550E62B9AEE75A4D /* Pods_TomsIRCUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,9 +261,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 029D5AA0225255F900CAB0D1 /* Build configuration list for PBXNativeTarget "TomsIRC" */;
 			buildPhases = (
+				5A9BF87305FD9CE58AC50A7C /* [CP] Check Pods Manifest.lock */,
 				029D5A6F225255F800CAB0D1 /* Sources */,
 				029D5A70225255F800CAB0D1 /* Frameworks */,
 				029D5A71225255F800CAB0D1 /* Resources */,
+				A563940E2D5A3A4940545612 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -235,6 +280,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 029D5AA3225255F900CAB0D1 /* Build configuration list for PBXNativeTarget "TomsIRCTests" */;
 			buildPhases = (
+				03B73962B465379E5DBC3A00 /* [CP] Check Pods Manifest.lock */,
 				029D5A88225255F900CAB0D1 /* Sources */,
 				029D5A89225255F900CAB0D1 /* Frameworks */,
 				029D5A8A225255F900CAB0D1 /* Resources */,
@@ -253,6 +299,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 029D5AA6225255F900CAB0D1 /* Build configuration list for PBXNativeTarget "TomsIRCUITests" */;
 			buildPhases = (
+				AB8C53EB81248EDC2F31B35D /* [CP] Check Pods Manifest.lock */,
 				029D5A93225255F900CAB0D1 /* Sources */,
 				029D5A94225255F900CAB0D1 /* Frameworks */,
 				029D5A95225255F900CAB0D1 /* Resources */,
@@ -338,11 +385,107 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		03B73962B465379E5DBC3A00 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TomsIRCTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5A9BF87305FD9CE58AC50A7C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TomsIRC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A563940E2D5A3A4940545612 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TomsIRC/Pods-TomsIRC-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TomsIRC/Pods-TomsIRC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB8C53EB81248EDC2F31B35D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TomsIRCUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		029D5A6F225255F800CAB0D1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020A7D9E22528DE200675282 /* Notifications.swift in Sources */,
 				029D5A77225255F800CAB0D1 /* AppDelegate.swift in Sources */,
 				029D5ADF2252786100CAB0D1 /* ChannelTableViewCell.swift in Sources */,
 				029D5AB9225256FE00CAB0D1 /* MessageInputView.swift in Sources */,
@@ -534,6 +677,7 @@
 		};
 		029D5AA1225255F900CAB0D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 584B5097EE2B5C8DDBFCF0E0 /* Pods-TomsIRC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -552,6 +696,7 @@
 		};
 		029D5AA2225255F900CAB0D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 87FE670001E5AF1B33139316 /* Pods-TomsIRC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -570,6 +715,7 @@
 		};
 		029D5AA4225255F900CAB0D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E665DA25908B22852BFA64E6 /* Pods-TomsIRCTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -591,6 +737,7 @@
 		};
 		029D5AA5225255F900CAB0D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D9E692AAD857073D8B88291D /* Pods-TomsIRCTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -612,6 +759,7 @@
 		};
 		029D5AA7225255F900CAB0D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 071C272FB7DB1CD1645F3B75 /* Pods-TomsIRCUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -632,6 +780,7 @@
 		};
 		029D5AA8225255F900CAB0D1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7404BD25F9C6FDE57B80A0D /* Pods-TomsIRCUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

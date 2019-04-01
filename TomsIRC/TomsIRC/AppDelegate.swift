@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+//import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
@@ -48,12 +49,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         if Settings.shared.okToConnect(){
             if (!Settings.shared.connected())
             {
-                Settings.shared.chatroom.delegate = self
+//                Settings.shared.chatroom.delegate = self
                 Settings.shared.chatroom.setupNetworkCommunication()
             }
         }
+        setUpNotifications()
     }
-
+    
+    
+    
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
@@ -75,14 +79,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
 }
 
+extension AppDelegate {
+    func setUpNotifications()  {
+        NotificationCenter.default.addObserver(self, selector: #selector(loginComplete(_:)), name: .loginComplete, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(channelListComplete(_:)), name: .channelListComplete, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(readyToLogin(_:)), name: .readyToLogin, object: nil)
 
-extension AppDelegate: ChatRoomDelegate {
-    
-    func commandReceived(cmd: String) {
-        
     }
-    func LoginComplete() {
-//        self.removeSpinner()
+    
+    @objc func loginComplete(_ notification:Notification) {
+        // Do something now
+        //        self.removeSpinner()
         print ("Login Complete")
         
         let predicate = NSPredicate(format: "subscribed == true" )
@@ -98,14 +105,19 @@ extension AppDelegate: ChatRoomDelegate {
             Settings.shared.chatroom.listChannels()
         }
         
-        
     }
     
-    func receivedMessage(message: Message) {}
+    @objc func channelListComplete(_ notification:Notification) {
+        // Do something now
+        let predicate = NSPredicate(format: "subscribed == true" )
+        let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
+        request.predicate = predicate
+        
+        Settings.shared.channels = try! dbStore.shared.context.fetch(request)
+    }
     
-    func sentMessage(message: String) {}
-    
-    func readyToLogin() {
+    @objc func readyToLogin(_ notification:Notification) {
+        // Do something now
         
         Settings.shared.chatroom.loginMode = true
         var message = "NICK \(Settings.shared.userName)"
@@ -115,15 +127,14 @@ extension AppDelegate: ChatRoomDelegate {
         Settings.shared.chatroom.sendCmd(message: message)
         
         Settings.shared.chatroom.login(nickName: Settings.shared.userName, pw: Settings.shared.password)
+        
     }
-    
-    func channelListComplete()
-    {
-        let predicate = NSPredicate(format: "subscribed == true" )
-        let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
-        request.predicate = predicate
 
-        Settings.shared.channels = try! dbStore.shared.context.fetch(request)
-    }
-    
 }
+
+//extension AppDelegate: ChatRoomDelegate {
+//
+//    func commandReceived(cmd: String) {}
+//    func receivedMessage(message: Message) {}
+//    func sentMessage(message: String) {}
+//}

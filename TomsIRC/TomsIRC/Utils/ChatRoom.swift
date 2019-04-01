@@ -13,9 +13,9 @@ import CoreData
 protocol ChatRoomDelegate: class {
     func receivedMessage(message: Message)
     func sentMessage(message: String)
-    func readyToLogin()
-    func LoginComplete()
-    func channelListComplete()
+//    func readyToLogin()
+//    func LoginComplete()
+//    func channelListComplete()
     func commandReceived(cmd: String)
 }
 
@@ -254,7 +254,8 @@ extension ChatRoom: StreamDelegate {
                                 msg = msg + p.last!.components(separatedBy: ":").last!+"\n"
                                 let cmdCode = p.first!.trimmingCharacters(in: .whitespacesAndNewlines)
                                 
-                                delegate!.commandReceived(cmd: cmdCode)
+//                                delegate!.commandReceived(cmd: cmdCode)
+                                NotificationCenter.default.post(name: .channelListComplete, object: cmdCode)
                                 
     //                            print ("\(cmdCode)  \(p.last!.components(separatedBy: ":").last!)")
                             }
@@ -274,7 +275,8 @@ extension ChatRoom: StreamDelegate {
                     if (message.message.contains("/MOTD"))
                     {
                         loginMode = false
-                        delegate?.LoginComplete()
+//                        delegate?.LoginComplete()
+                        NotificationCenter.default.post(name: .loginComplete, object: nil)
                     }
                 }
                     if (listMode)
@@ -284,7 +286,8 @@ extension ChatRoom: StreamDelegate {
                         {
                             listMode = false
                             processChannelList(channelListString: channelListString)
-                            delegate?.channelListComplete()
+//                            delegate?.channelListComplete()
+                            NotificationCenter.default.post(name: .channelListComplete, object: nil)
                         }
                     }
                     else
@@ -297,7 +300,8 @@ extension ChatRoom: StreamDelegate {
                         
                         if (message.message.contains("No Ident response"))
                         {
-                            delegate?.readyToLogin()
+//                            delegate?.readyToLogin()
+                            NotificationCenter.default.post(name: .readyToLogin, object: nil)
                         }
                 }
             }
