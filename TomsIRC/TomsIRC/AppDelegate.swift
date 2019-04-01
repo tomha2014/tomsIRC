@@ -98,11 +98,11 @@ extension AppDelegate {
         let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
         request.sortDescriptors = [sortDescriptor]
         
-        Settings.shared.channels = try! dbStore.shared.context.fetch(request)
+        Settings.shared.AllChannels = try! dbStore.shared.context.fetch(request)
         
-        if (Settings.shared.channels.count == 0)
+        if (Settings.shared.AllChannels.count == 0)
         {
-            Settings.shared.chatroom.listChannels()
+//            Settings.shared.chatroom.listChannels()
         }
         
     }
@@ -113,7 +113,8 @@ extension AppDelegate {
         let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
         request.predicate = predicate
         
-        Settings.shared.channels = try! dbStore.shared.context.fetch(request)
+        Settings.shared.AllChannels = try! dbStore.shared.context.fetch(request)
+        
     }
     
     @objc func readyToLogin(_ notification:Notification) {

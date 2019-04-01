@@ -20,7 +20,7 @@ class Settings
     public var server = ""
     public var port:UInt32 = 0
     public var serverID = ""
-    public var channels: [NSManagedObject] = []
+    public var AllChannels: [NSManagedObject] = []
     
     public var chatroom:ChatRoom
     

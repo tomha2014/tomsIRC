@@ -12,16 +12,16 @@ import CoreData
 class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
 
     var detailViewController: DetailViewController? = nil
-    
+    public var channels: [NSManagedObject] = []
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        navigationItem.leftBarButtonItem = editButtonItem
+//        navigationItem.leftBarButtonItem = editButtonItem
 
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addChannels(_:)))
-        navigationItem.rightBarButtonItem = addButton
+//        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addChannels(_:)))
+//        navigationItem.rightBarButtonItem = addButton
         
         
         if let split = splitViewController {
@@ -29,6 +29,14 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
         
+        let predicate = NSPredicate(format: "subscribed == true" )
+        let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
+        request.predicate = predicate
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        channels = try! dbStore.shared.context.fetch(request)
+        
+        setUpNotifications()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -82,23 +90,17 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Settings.shared.channels.count
+        return channels.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "channelCell", for: indexPath) as! ChannelTableViewCell
+        let t = channels[indexPath.row] as! IRCChannel
         
-        // Configure the cell...
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle, reuseIdentifier: "MyTestCell")
         
-        
-        let t = Settings.shared.channels[indexPath.row]
-        let name = t.value(forKeyPath: "name") as? String
-        let desc = t.value(forKeyPath: "desc") as? String
-        print("\(String(describing: name))--> \(String(describing: desc))")
-        
-        cell.title.text = name
-//        cell.desc.text = desc
-//        cell.count.text = t.value(forKeyPath: "count") as? String
+        cell.textLabel?.text = t.name
+        cell.detailTextLabel?.text = t.desc        
+        cell.accessoryType = .none
         
         return cell
     }
@@ -111,9 +113,21 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     }
 
+}
 
-
+extension MasterViewController {
+    func setUpNotifications()  {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateMasterChannelList(_:)), name: .updateMasterChannelList, object: nil)
+    }
     
-
+    @objc func updateMasterChannelList(_ notification:Notification) {
+        let predicate = NSPredicate(format: "subscribed == true" )
+        let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
+        request.predicate = predicate
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        channels = try! dbStore.shared.context.fetch(request)
+        tableView.reloadData()
+    }
 }
 

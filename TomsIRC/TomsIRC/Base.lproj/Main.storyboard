@@ -112,11 +112,57 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Channels" id="Zdf-7t-Un8"/>
+                    <navigationItem key="navigationItem" title="Channels" id="Zdf-7t-Un8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jye-32-T9n">
+                            <connections>
+                                <segue destination="sXH-6v-Cno" kind="popoverPresentation" popoverAnchorBarButtonItem="Jye-32-T9n" id="l7M-P6-wBT">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rux-fX-hf1" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="-630"/>
+        </scene>
+        <!--Channel Picker View Controller-->
+        <scene sceneID="aWz-PO-dCC">
+            <objects>
+                <viewController id="sXH-6v-Cno" customClass="ChannelPickerViewController" customModule="TomsIRC" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iug-w6-J8y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="0zP-OJ-ckz">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="YT3-Ee-2C3">
+                                <rect key="frame" x="0.0" y="100" width="414" height="762"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YT3-Ee-2C3" firstAttribute="bottom" secondItem="hFN-aH-8Sk" secondAttribute="bottom" id="ECa-D7-430"/>
+                            <constraint firstItem="YT3-Ee-2C3" firstAttribute="leading" secondItem="hFN-aH-8Sk" secondAttribute="leading" id="N1S-8v-ciI"/>
+                            <constraint firstItem="YT3-Ee-2C3" firstAttribute="top" secondItem="0zP-OJ-ckz" secondAttribute="bottom" id="R9R-uz-nyG"/>
+                            <constraint firstItem="0zP-OJ-ckz" firstAttribute="top" secondItem="hFN-aH-8Sk" secondAttribute="top" id="cxm-Mz-t3A"/>
+                            <constraint firstItem="hFN-aH-8Sk" firstAttribute="trailing" secondItem="YT3-Ee-2C3" secondAttribute="trailing" constant="8" id="gzh-NP-iEl"/>
+                            <constraint firstItem="0zP-OJ-ckz" firstAttribute="trailing" secondItem="hFN-aH-8Sk" secondAttribute="trailing" id="qu0-0A-nNp"/>
+                            <constraint firstItem="0zP-OJ-ckz" firstAttribute="leading" secondItem="hFN-aH-8Sk" secondAttribute="leading" id="ub5-5c-UZB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hFN-aH-8Sk"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchbar" destination="0zP-OJ-ckz" id="Bb7-MJ-rqg"/>
+                        <outlet property="tableView" destination="YT3-Ee-2C3" id="Ubk-N5-iEw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2da-qo-wO2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1501.449275362319" y="-606.02678571428567"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="r7l-gg-dq7">

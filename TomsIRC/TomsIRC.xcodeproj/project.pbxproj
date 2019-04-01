@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		020A7D9E22528DE200675282 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7D9D22528DE200675282 /* Notifications.swift */; };
+		020A7DA022529A3200675282 /* ChannelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7D9F22529A3200675282 /* ChannelPickerViewController.swift */; };
 		029D5A77225255F800CAB0D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A76225255F800CAB0D1 /* AppDelegate.swift */; };
 		029D5A7C225255F800CAB0D1 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A7B225255F800CAB0D1 /* MasterViewController.swift */; };
 		029D5A7E225255F800CAB0D1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A7D225255F800CAB0D1 /* DetailViewController.swift */; };
@@ -57,6 +58,7 @@
 
 /* Begin PBXFileReference section */
 		020A7D9D22528DE200675282 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		020A7D9F22529A3200675282 /* ChannelPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelPickerViewController.swift; sourceTree = "<group>"; };
 		029D5A73225255F800CAB0D1 /* TomsIRC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomsIRC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029D5A76225255F800CAB0D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		029D5A79225255F800CAB0D1 /* TomsIRC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TomsIRC.xcdatamodel; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				029D5A76225255F800CAB0D1 /* AppDelegate.swift */,
 				029D5A7B225255F800CAB0D1 /* MasterViewController.swift */,
 				029D5A7D225255F800CAB0D1 /* DetailViewController.swift */,
+				020A7D9F22529A3200675282 /* ChannelPickerViewController.swift */,
 				029D5A7F225255F800CAB0D1 /* Main.storyboard */,
 				029D5A82225255F900CAB0D1 /* Assets.xcassets */,
 				029D5A84225255F900CAB0D1 /* LaunchScreen.storyboard */,
@@ -489,6 +492,7 @@
 				029D5A77225255F800CAB0D1 /* AppDelegate.swift in Sources */,
 				029D5ADF2252786100CAB0D1 /* ChannelTableViewCell.swift in Sources */,
 				029D5AB9225256FE00CAB0D1 /* MessageInputView.swift in Sources */,
+				020A7DA022529A3200675282 /* ChannelPickerViewController.swift in Sources */,
 				029D5ABC225256FE00CAB0D1 /* StringExtension.swift in Sources */,
 				029D5ABB225256FE00CAB0D1 /* UIViewController.swift in Sources */,
 				029D5ADB22525EC600CAB0D1 /* IRCMessage+CoreDataProperties.swift in Sources */,

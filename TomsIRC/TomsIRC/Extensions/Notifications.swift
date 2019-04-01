@@ -12,4 +12,7 @@ extension Notification.Name {
     static let loginComplete = Notification.Name("loginComplete")
     static let channelListComplete = Notification.Name("channelListComplete")
     static let readyToLogin = Notification.Name("readyToLogin")
+    
+    
+    static let updateMasterChannelList = Notification.Name("updateMasterChannelList")
 }
