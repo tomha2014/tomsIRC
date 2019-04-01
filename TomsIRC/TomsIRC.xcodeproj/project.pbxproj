@@ -31,6 +31,7 @@
 		029D5ADB22525EC600CAB0D1 /* IRCMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5AD522525EC600CAB0D1 /* IRCMessage+CoreDataProperties.swift */; };
 		029D5ADC22525EC600CAB0D1 /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5AD622525EC600CAB0D1 /* Event+CoreDataClass.swift */; };
 		029D5ADD22525EC600CAB0D1 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5AD722525EC600CAB0D1 /* Event+CoreDataProperties.swift */; };
+		029D5ADF2252786100CAB0D1 /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5ADE2252786100CAB0D1 /* ChannelTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		029D5AD522525EC600CAB0D1 /* IRCMessage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IRCMessage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		029D5AD622525EC600CAB0D1 /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
 		029D5AD722525EC600CAB0D1 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		029D5ADE2252786100CAB0D1 /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 		029D5AC22252570E00CAB0D1 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				029D5ADE2252786100CAB0D1 /* ChannelTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				029D5A77225255F800CAB0D1 /* AppDelegate.swift in Sources */,
+				029D5ADF2252786100CAB0D1 /* ChannelTableViewCell.swift in Sources */,
 				029D5AB9225256FE00CAB0D1 /* MessageInputView.swift in Sources */,
 				029D5ABC225256FE00CAB0D1 /* StringExtension.swift in Sources */,
 				029D5ABB225256FE00CAB0D1 /* UIViewController.swift in Sources */,

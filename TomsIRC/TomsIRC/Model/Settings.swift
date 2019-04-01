@@ -83,6 +83,24 @@ class Settings
     
     func okToConnect() -> Bool {
         
+        if (self.server.count == 0){
+            return false
+        }
+        
+        if (self.email.count == 0){
+            return false
+        }
+        
+        if (self.password.count == 0){
+            return false
+        }
+
+        if (self.nickName.count == 0){
+            return false
+        }
+        
+        
+        
         //if allready connected do not reconnect
         if (chatroom.inputStream != nil)
         {
@@ -96,6 +114,10 @@ class Settings
     }
     
     func connected() -> Bool {
+        if (chatroom.inputStream == nil)
+        {
+            return false
+        }
         return chatroom.inputStream.streamStatus == .open
     }
     
