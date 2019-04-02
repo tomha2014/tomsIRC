@@ -204,7 +204,7 @@ extension ChatRoom: StreamDelegate {
                         message.channelName = channel
                         message.message = d.trimmingCharacters(in: .whitespacesAndNewlines)
                         message.senderUsername = userName!
-                        delegate?.receivedMessage(message: message)
+//                        delegate?.receivedMessage(message: message)
                         saveMessage(channel: channel, from: userName!, message: message.message)
                         return
                     }
@@ -213,7 +213,7 @@ extension ChatRoom: StreamDelegate {
                         print ("-----> JOIN")
                         message.message = "\(userName!) has joined"
                         message.senderUsername = userName!
-                        delegate?.receivedMessage(message: message)
+//                        delegate?.receivedMessage(message: message)
                         return
                     }
                     if ( cmd == "QUIT" )
@@ -221,7 +221,7 @@ extension ChatRoom: StreamDelegate {
                         print ("-----> QUIT")
                         message.message = d.trimmingCharacters(in: .whitespacesAndNewlines)
                         message.senderUsername = userName!
-                        delegate?.receivedMessage(message: message)
+//                        delegate?.receivedMessage(message: message)
                         return
                     }
                     
@@ -296,7 +296,7 @@ extension ChatRoom: StreamDelegate {
                         message.message = message.message.trimmingCharacters(in: .whitespacesAndNewlines)
 //                            print(message.message)
                         
-                        delegate?.receivedMessage(message: message)
+//                        delegate?.receivedMessage(message: message)
                         
                         if (message.message.contains("No Ident response"))
                         {

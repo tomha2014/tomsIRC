@@ -14,7 +14,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-
+    public var channels: [NSManagedObject] = []
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -100,8 +100,9 @@ extension AppDelegate {
         
         Settings.shared.AllChannels = try! dbStore.shared.context.fetch(request)
         
-        if (Settings.shared.AllChannels.count == 0)
+        if (Settings.shared.AllChannels.count > 0)
         {
+            joinChannels()
 //            Settings.shared.chatroom.listChannels()
         }
         
@@ -130,6 +131,28 @@ extension AppDelegate {
         Settings.shared.chatroom.login(nickName: Settings.shared.userName, pw: Settings.shared.password)
         
     }
+    
+
+    
+    func joinChannels()  {
+        
+        let predicate = NSPredicate(format: "subscribed == true" )
+        let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
+        request.predicate = predicate
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        request.sortDescriptors = [sortDescriptor]
+        channels = try! dbStore.shared.context.fetch(request)
+        
+        
+        for i in 0..<channels.count
+        {
+            let c = channels[i] as! IRCChannel
+            Settings.shared.chatroom.joinChannel(channelName: c.name!)
+            Settings.shared.joinedChannels.append(c.name!)
+        }
+    }
+    
+    
 
 }
 

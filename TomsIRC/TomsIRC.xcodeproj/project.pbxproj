@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		020A7D9E22528DE200675282 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7D9D22528DE200675282 /* Notifications.swift */; };
 		020A7DA022529A3200675282 /* ChannelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7D9F22529A3200675282 /* ChannelPickerViewController.swift */; };
+		020A7DA22252DD4400675282 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7DA12252DD4400675282 /* MessageTableViewCell.swift */; };
+		020A7DA42252DDD900675282 /* Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7DA32252DDD900675282 /* Layouts.swift */; };
 		029D5A77225255F800CAB0D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A76225255F800CAB0D1 /* AppDelegate.swift */; };
 		029D5A7C225255F800CAB0D1 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A7B225255F800CAB0D1 /* MasterViewController.swift */; };
 		029D5A7E225255F800CAB0D1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A7D225255F800CAB0D1 /* DetailViewController.swift */; };
@@ -59,6 +61,8 @@
 /* Begin PBXFileReference section */
 		020A7D9D22528DE200675282 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		020A7D9F22529A3200675282 /* ChannelPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelPickerViewController.swift; sourceTree = "<group>"; };
+		020A7DA12252DD4400675282 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		020A7DA32252DDD900675282 /* Layouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layouts.swift; sourceTree = "<group>"; };
 		029D5A73225255F800CAB0D1 /* TomsIRC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomsIRC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029D5A76225255F800CAB0D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		029D5A79225255F800CAB0D1 /* TomsIRC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TomsIRC.xcdatamodel; sourceTree = "<group>"; };
@@ -129,6 +133,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		020A7DA52252DE3300675282 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		029D5A6A225255F800CAB0D1 = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +165,7 @@
 		029D5A75225255F800CAB0D1 /* TomsIRC */ = {
 			isa = PBXGroup;
 			children = (
+				020A7DA52252DE3300675282 /* ViewControllers */,
 				029D5AC22252570E00CAB0D1 /* CustomCells */,
 				029D5AA9225256FE00CAB0D1 /* Extensions */,
 				029D5AB4225256FE00CAB0D1 /* Model */,
@@ -192,6 +204,7 @@
 		029D5AA9225256FE00CAB0D1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				020A7DA32252DDD900675282 /* Layouts.swift */,
 				029D5AAB225256FE00CAB0D1 /* Date.swift */,
 				029D5AAC225256FE00CAB0D1 /* MessageInputView.swift */,
 				029D5AAD225256FE00CAB0D1 /* UserDefaults.swift */,
@@ -230,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				029D5ADE2252786100CAB0D1 /* ChannelTableViewCell.swift */,
+				020A7DA12252DD4400675282 /* MessageTableViewCell.swift */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -489,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				020A7D9E22528DE200675282 /* Notifications.swift in Sources */,
+				020A7DA42252DDD900675282 /* Layouts.swift in Sources */,
 				029D5A77225255F800CAB0D1 /* AppDelegate.swift in Sources */,
 				029D5ADF2252786100CAB0D1 /* ChannelTableViewCell.swift in Sources */,
 				029D5AB9225256FE00CAB0D1 /* MessageInputView.swift in Sources */,
@@ -503,6 +518,7 @@
 				029D5ADA22525EC600CAB0D1 /* IRCMessage+CoreDataClass.swift in Sources */,
 				029D5ABA225256FE00CAB0D1 /* UserDefaults.swift in Sources */,
 				029D5AD922525EC600CAB0D1 /* IRCChannel+CoreDataProperties.swift in Sources */,
+				020A7DA22252DD4400675282 /* MessageTableViewCell.swift in Sources */,
 				029D5AC1225256FE00CAB0D1 /* Settings.swift in Sources */,
 				029D5A7C225255F800CAB0D1 /* MasterViewController.swift in Sources */,
 				029D5ABF225256FE00CAB0D1 /* ChatRoom.swift in Sources */,

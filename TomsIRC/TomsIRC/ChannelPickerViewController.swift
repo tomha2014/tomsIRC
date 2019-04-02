@@ -117,6 +117,9 @@ public var AllChannels: [NSManagedObject] = []
 }
 extension ChannelPickerViewController: UITableViewDelegate{
 
+    
+    
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
     {
         
