@@ -25,6 +25,7 @@ extension MessageTableViewCell {
       } else {
         nameLabel.isHidden = false
         nameLabel.sizeToFit()
+        nameLabel.backgroundColor = .white
         nameLabel.center = CGPoint(x: nameLabel.bounds.size.width/2.0 + 16 + 4, y: nameLabel.bounds.size.height/2.0 + 4)
         
         messageLabel.center = CGPoint(x: messageLabel.bounds.size.width/2.0 + 16, y: messageLabel.bounds.size.height/2.0 + nameLabel.bounds.size.height + 8)

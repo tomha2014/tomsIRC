@@ -41,7 +41,7 @@ class MessageTableViewCell: UITableViewCell {
         let nameHeight = message.messageSender == .ourself ? 0 : (height(forText: message.senderUsername, fontSize: 10, maxSize: maxSize) + 4 )
         let messageHeight = height(forText: message.message, fontSize: 17, maxSize: maxSize)
         
-        return nameHeight + messageHeight + 32 + 16
+        return nameHeight + messageHeight + 0 + 16
     }
     
     private class func height(forText text: String, fontSize: CGFloat, maxSize: CGSize) -> CGFloat {
