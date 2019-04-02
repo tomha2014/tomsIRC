@@ -6,8 +6,8 @@ extension MessageTableViewCell {
     super.layoutSubviews()
     
 
-      messageLabel.font = UIFont(name: "Arial", size: 17) //UIFont.systemFont(ofSize: 17)
-      nameLabel.font = UIFont(name: "Arial-BoldMT", size: 17) //UIFont.systemFont(ofSize: 17)
+//      messageLabel.font = UIFont(name: "Arial", size: 17) //UIFont.systemFont(ofSize: 17)
+//      nameLabel.font = UIFont(name: "Arial-BoldMT", size: 17) //UIFont.systemFont(ofSize: 17)
     
       messageLabel.textColor = .white
       

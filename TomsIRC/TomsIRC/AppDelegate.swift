@@ -49,19 +49,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         if Settings.shared.okToConnect(){
             if (!Settings.shared.connected())
             {
-//                Settings.shared.chatroom.delegate = self
                 Settings.shared.chatroom.setupNetworkCommunication()
             }
         }
         setUpNotifications()
     }
     
-    
-    
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         dbStore.shared.Save()
+        Settings.shared.chatroom.stopChatSession()
     }
 
     // MARK: - Split view
@@ -84,6 +82,7 @@ extension AppDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(loginComplete(_:)), name: .loginComplete, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(channelListComplete(_:)), name: .channelListComplete, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(readyToLogin(_:)), name: .readyToLogin, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(commandRecieved(_:)), name: .commandRecieved, object: nil)
 
     }
     
@@ -132,7 +131,17 @@ extension AppDelegate {
         
     }
     
+    @objc func commandRecieved(_ notification:Notification)
+    {
+        let cmdCode = notification.object as! CmdMsg
+        print (cmdCode.msg)
+        if (cmdCode.cmd == "465")
+        {
+            let alert = UIAlertController(title: "Alert", message: cmdCode.msg, preferredStyle: .alert)
 
+            self.window?.rootViewController!.present(alert, animated: true, completion: nil)
+        }
+    }
     
     func joinChannels()  {
         

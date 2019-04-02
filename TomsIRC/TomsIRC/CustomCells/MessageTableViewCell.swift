@@ -15,7 +15,21 @@ class MessageTableViewCell: UITableViewCell {
     let nameLabel = UILabel()
     
     func apply(message: Message) {
-        nameLabel.text = message.senderUsername
+        
+        let d = message.timeStamp
+        let dateformatter = DateFormatter()
+        dateformatter.dateFormat = "h:mm"
+        let now = dateformatter.string(from: d)
+        
+        let formattedString = NSMutableAttributedString()
+        formattedString
+            .bold("\(message.senderUsername)")
+            .normal(" \(now)")
+        
+        
+        
+        
+        nameLabel.attributedText = formattedString// "\(message.senderUsername) \(now)"
         messageLabel.text = message.message
         messageSender = message.messageSender
         setNeedsLayout()

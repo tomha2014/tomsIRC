@@ -16,7 +16,7 @@ protocol ChatRoomDelegate: class {
 //    func readyToLogin()
 //    func LoginComplete()
 //    func channelListComplete()
-    func commandReceived(cmd: String)
+//    func commandReceived(cmd: String)
 }
 
 class ChatRoom: NSObject {
@@ -128,7 +128,7 @@ extension ChatRoom: StreamDelegate {
             }
             
             if var message = processedMessageString(buffer: buffer, length: numberOfBytesRead) {
-                print (message.message)
+//                print (message.message)
                 
                 //                if (Settings.shared.serverID == ""){
                 if message.message.contains("001")
@@ -246,19 +246,27 @@ extension ChatRoom: StreamDelegate {
                             
                             let parts = message.message.components(separatedBy: id)
                             var msg = ""
+                            var cmdCode = ""
                             for part in parts {
     //                            print("\(part)")
     //                            var p = part.components(separatedBy: ":")
                                 
                                 let p = part.components(separatedBy: Settings.shared.userName)
                                 msg = msg + p.last!.components(separatedBy: ":").last!+"\n"
-                                let cmdCode = p.first!.trimmingCharacters(in: .whitespacesAndNewlines)
+                                cmdCode = p.first!.trimmingCharacters(in: .whitespacesAndNewlines)
                                 
-//                                delegate!.commandReceived(cmd: cmdCode)
                                 NotificationCenter.default.post(name: .channelListComplete, object: cmdCode)
                                 
     //                            print ("\(cmdCode)  \(p.last!.components(separatedBy: ":").last!)")
                             }
+                            
+                            if (cmdCode == "465")
+                            {
+                                print("Banded")
+                            }
+                            
+                            NotificationCenter.default.post(name: .commandRecieved, object: CmdMsg(cmd: cmdCode, msg: message.message))
+                            
                             message.message = msg
     //                        message = Message(message: msg, messageSender: message.messageSender, username: message.senderUsername)
                             
@@ -294,13 +302,8 @@ extension ChatRoom: StreamDelegate {
                     {
                         
                         message.message = message.message.trimmingCharacters(in: .whitespacesAndNewlines)
-//                            print(message.message)
-                        
-//                        delegate?.receivedMessage(message: message)
-                        
                         if (message.message.contains("No Ident response"))
                         {
-//                            delegate?.readyToLogin()
                             NotificationCenter.default.post(name: .readyToLogin, object: nil)
                         }
                 }
@@ -328,10 +331,7 @@ extension ChatRoom: StreamDelegate {
         
         
         let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
-        var channels: [NSManagedObject] = try! dbStore.shared.context.fetch(request)
-        
-//        print ("\(Settings.shared.serverID)")
-        
+        let channels: [NSManagedObject] = try! dbStore.shared.context.fetch(request)
         
         self.channelListString = channelListString.trimmingCharacters(in: .whitespacesAndNewlines)
         
@@ -339,11 +339,9 @@ extension ChatRoom: StreamDelegate {
         Settings.shared.serverID = c
         
         let channelList = channelListString.components(separatedBy: "\(Settings.shared.serverID)")
-        print ("===> \(Settings.shared.serverID)")
         
         for word in channelList
         {
-//            print (word)
             let trimmed = word.trimmingCharacters(in: .whitespacesAndNewlines)
             if (trimmed.count>0)
             {
@@ -360,33 +358,24 @@ extension ChatRoom: StreamDelegate {
                     {
                         desc = String(trimmed.suffix(trimmed.count - (p.first! + 1) ))
                     }
-                        //                    print (trimmed)
-//                    print (desc)
                     let front = trimmed.prefix(p.first!).trimmingCharacters(in: .whitespacesAndNewlines)
-                    
-//                    print (front) //322 tomha2021 #RadioIrcRomania 31
                     
                     var a = front.components(separatedBy: " ")
                     if (a.count == 4)
                     {
                         let count = a.removeLast()
                         let name = a.removeLast()
-                        print (name)
     
                         if name != Settings.shared.userName
                         {
                             var found = false
                             for ch in channels as! [IRCChannel]{
-//                                print (String(ch.name!))
-//                                let n = ch.name!
-//                                print (name)
                                 if (ch.name == name){
                                     found = true
                                     ch.count = Int32(count)!
                                     
                                 }
                             }
-//                            print ("\(name) \(Int(count)) \(String(desc))")
                             if (!found)
                             {
                                 save(name: name, count: Int(count)!, desc: String(desc))

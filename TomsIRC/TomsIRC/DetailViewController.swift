@@ -63,7 +63,7 @@ class DetailViewController: UIViewController {
         for i in 0..<msgs.count
         {
             let msg = msgs[i] as! IRCMessage
-            let m = Message(message: msg.message!, messageSender: .someoneElse, username: msg.from!)
+            let m = Message(message: msg.message!, messageSender: .someoneElse, username: msg.from!, date: msg.timestamp! as Date)
             messages.append(m)
         }
     }

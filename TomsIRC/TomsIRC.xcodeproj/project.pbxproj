@@ -11,6 +11,8 @@
 		020A7DA022529A3200675282 /* ChannelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7D9F22529A3200675282 /* ChannelPickerViewController.swift */; };
 		020A7DA22252DD4400675282 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7DA12252DD4400675282 /* MessageTableViewCell.swift */; };
 		020A7DA42252DDD900675282 /* Layouts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7DA32252DDD900675282 /* Layouts.swift */; };
+		025242492253A38E00B1C2FC /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025242482253A38E00B1C2FC /* NSMutableAttributedString.swift */; };
+		0252424B2253AA2500B1C2FC /* CmdMsg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0252424A2253AA2500B1C2FC /* CmdMsg.swift */; };
 		029D5A77225255F800CAB0D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A76225255F800CAB0D1 /* AppDelegate.swift */; };
 		029D5A7C225255F800CAB0D1 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A7B225255F800CAB0D1 /* MasterViewController.swift */; };
 		029D5A7E225255F800CAB0D1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A7D225255F800CAB0D1 /* DetailViewController.swift */; };
@@ -63,6 +65,8 @@
 		020A7D9F22529A3200675282 /* ChannelPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelPickerViewController.swift; sourceTree = "<group>"; };
 		020A7DA12252DD4400675282 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		020A7DA32252DDD900675282 /* Layouts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layouts.swift; sourceTree = "<group>"; };
+		025242482253A38E00B1C2FC /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
+		0252424A2253AA2500B1C2FC /* CmdMsg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CmdMsg.swift; sourceTree = "<group>"; };
 		029D5A73225255F800CAB0D1 /* TomsIRC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomsIRC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029D5A76225255F800CAB0D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		029D5A79225255F800CAB0D1 /* TomsIRC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TomsIRC.xcdatamodel; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				029D5AAE225256FE00CAB0D1 /* UIViewController.swift */,
 				029D5AAF225256FE00CAB0D1 /* StringExtension.swift */,
 				020A7D9D22528DE200675282 /* Notifications.swift */,
+				025242482253A38E00B1C2FC /* NSMutableAttributedString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				029D5AD722525EC600CAB0D1 /* Event+CoreDataProperties.swift */,
 				029D5AB5225256FE00CAB0D1 /* Message.swift */,
 				029D5AB6225256FE00CAB0D1 /* Settings.swift */,
+				0252424A2253AA2500B1C2FC /* CmdMsg.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -515,6 +521,7 @@
 				029D5AB8225256FE00CAB0D1 /* Date.swift in Sources */,
 				029D5AD822525EC600CAB0D1 /* IRCChannel+CoreDataClass.swift in Sources */,
 				029D5ADC22525EC600CAB0D1 /* Event+CoreDataClass.swift in Sources */,
+				0252424B2253AA2500B1C2FC /* CmdMsg.swift in Sources */,
 				029D5ADA22525EC600CAB0D1 /* IRCMessage+CoreDataClass.swift in Sources */,
 				029D5ABA225256FE00CAB0D1 /* UserDefaults.swift in Sources */,
 				029D5AD922525EC600CAB0D1 /* IRCChannel+CoreDataProperties.swift in Sources */,
@@ -522,6 +529,7 @@
 				029D5AC1225256FE00CAB0D1 /* Settings.swift in Sources */,
 				029D5A7C225255F800CAB0D1 /* MasterViewController.swift in Sources */,
 				029D5ABF225256FE00CAB0D1 /* ChatRoom.swift in Sources */,
+				025242492253A38E00B1C2FC /* NSMutableAttributedString.swift in Sources */,
 				029D5A7E225255F800CAB0D1 /* DetailViewController.swift in Sources */,
 				029D5AC0225256FE00CAB0D1 /* Message.swift in Sources */,
 				029D5AC82252572400CAB0D1 /* dbStore.swift in Sources */,

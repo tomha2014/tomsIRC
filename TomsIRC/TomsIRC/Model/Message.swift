@@ -19,11 +19,21 @@ struct Message {
     var senderUsername: String
     var channelName: String
     let messageSender: MessageSender
+    var timeStamp:Date
     
     init(message: String, messageSender: MessageSender, username: String) {
         self.message = message.withoutWhitespace()
         self.messageSender = messageSender
         self.senderUsername = username
         self.channelName = ""
+        self.timeStamp = Date()
+    }
+    
+    init(message: String, messageSender: MessageSender, username: String, date:Date) {
+        self.message = message.withoutWhitespace()
+        self.messageSender = messageSender
+        self.senderUsername = username
+        self.channelName = ""
+        self.timeStamp = date
     }
 }
