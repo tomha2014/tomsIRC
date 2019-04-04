@@ -19,7 +19,7 @@ class DetailViewController: UIViewController {
     
     public var msgs: [NSManagedObject] = []
     
-    var messages = [Message]()
+//    var messages = [Message]()
     public var channelName = ""
     
     func configureView() {
@@ -58,14 +58,55 @@ class DetailViewController: UIViewController {
         //        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: true)
         //        request.sortDescriptors = [sortDescriptor]
         
+        var groupCount = Settings.shared.groups.count
         msgs = try! dbStore.shared.context.fetch(request)
-        //        let c = msgs.count
+        let c = msgs.count
         for i in 0..<msgs.count
         {
             let msg = msgs[i] as! IRCMessage
-            let m = Message(message: msg.message!, messageSender: .someoneElse, username: msg.from!, date: msg.timestamp! as Date)
-            messages.append(m)
+            let group = findGroupId(date: msg.timestamp! as Date)
+            let m = Message(message: msg.message!, messageSender: .someoneElse, username: msg.from!, date: msg.timestamp! as Date, groupID: group.id)
+//            messages.append(m)
+            group.messages.append(m)
         }
+        
+        if (c>0)
+        {
+            groupCount = Settings.shared.groups.count
+            groupCount = Settings.shared.groups.count
+        }
+    }
+    
+    
+    
+    func findGroupId(date:Date) -> MessageGroup {
+        
+        let dStr = date.toDateString()
+//        print ( dStr )
+
+        if (Settings.shared.groups.isEmpty)
+        {
+            Settings.shared.todaysGroupID = Settings.shared.todaysGroupID + 1;
+            let group = MessageGroup(date: date, id: Settings.shared.todaysGroupID)
+            group.msgCount = group.msgCount + 1
+            Settings.shared.groups.append(group)
+            return group
+        }
+        
+        for g in Settings.shared.groups
+        {
+            let ds = g.date.toDateString()
+            if (ds == dStr)
+            {
+                g.msgCount = g.msgCount + 1
+                return g
+            }
+        }
+        
+        let group = MessageGroup(date: date, id: Settings.shared.todaysGroupID)
+        group.msgCount = group.msgCount + 1
+        Settings.shared.groups.append(group)
+        return group
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -92,7 +133,7 @@ class DetailViewController: UIViewController {
         {
             
             Settings.shared.chatroom.sendMessage(message: txt!, channelName: self.channelName)
-            insertNewMessageCell( Message(message: txt!, messageSender: MessageSender.ourself, username: Settings.shared.userName))
+            insertNewMessageCell( Message(message: txt!, messageSender: MessageSender.ourself, username: Settings.shared.userName,groupID: Settings.shared.todaysGroupID))
             self.textInput.text = ""
         }
     }
@@ -120,35 +161,49 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UITableViewDataSource, UITableViewDelegate
 {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let mGrp = Settings.shared.groups[indexPath.section]
+        let message = mGrp.messages[indexPath.row]
+        
         let cell = MessageTableViewCell(style: .default, reuseIdentifier: "MessageCell")
         cell.selectionStyle = .none
         
-        let message = messages[indexPath.row]
+         //messages[indexPath.row]
         cell.apply(message: message)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        let count = Settings.shared.groups[section].msgCount
+        return count
+
     }
     
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return Settings.shared.groups.count
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let mGrp = Settings.shared.groups[section]
+        return "\(mGrp.date.toHeaderString())"
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let height = MessageTableViewCell.height(for: messages[indexPath.row])
+        let mGrp = Settings.shared.groups[indexPath.section]
+        let message = mGrp.messages[indexPath.row]
+        let height = MessageTableViewCell.height(for: message)
         return height
     }
     
     func insertNewMessageCell(_ message: Message) {
-        messages.append(message)
-        let indexPath = IndexPath(row: messages.count - 1, section: 0)
-        tableView.beginUpdates()
-        tableView.insertRows(at: [indexPath], with: .bottom)
-        tableView.endUpdates()
-        tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+//        messages.append(message)
+//        let indexPath = IndexPath(row: messages.count - 1, section: 0)
+//        tableView.beginUpdates()
+//        tableView.insertRows(at: [indexPath], with: .bottom)
+//        tableView.endUpdates()
+//        tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
     }
 }
 

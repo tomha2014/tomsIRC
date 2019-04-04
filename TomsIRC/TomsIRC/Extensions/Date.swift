@@ -16,4 +16,36 @@ extension Date {
     init(milliseconds:Int) {
         self = Date(timeIntervalSince1970: TimeInterval(milliseconds) / 1000)
     }
+    
+    func isEqualTo(_ date: Date) -> Bool {
+        return self == date
+    }
+    
+    func isGreaterThan(_ date: Date) -> Bool {
+        return self > date
+    }
+    
+    func isSmallerThan(_ date: Date) -> Bool {
+        return self < date
+    }
+
+    
+    func toDateString() -> String {
+        let df = DateFormatter()
+        df.setLocalizedDateFormatFromTemplate("MMM dd yyy")
+        return df.string(from: self)
+    }
+    
+    func toHeaderString() -> String {
+        
+        if (toDateString() == Date().toDateString())
+        {
+            return "Today"
+        }
+        
+        let df = DateFormatter()
+        df.setLocalizedDateFormatFromTemplate("MMM dd")
+        return df.string(from: self)
+    }
+    
 }

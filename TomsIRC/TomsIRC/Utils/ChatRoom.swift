@@ -408,7 +408,7 @@ extension ChatRoom: StreamDelegate {
             }
         }
         
-        return Message(message: message, messageSender: MessageSender.someoneElse, username: "server")
+        return Message(message: message, messageSender: MessageSender.someoneElse, username: "server",date: Date(), groupID: Settings.shared.todaysGroupID)
         
     }
     

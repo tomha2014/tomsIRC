@@ -21,11 +21,13 @@ class Settings
     public var port:UInt32 = 0
     public var serverID = ""
     public var AllChannels: [NSManagedObject] = []
+    public var todaysGroupID = 0
     
     public var chatroom:ChatRoom
     
     static let shared = Settings()
     var joinedChannels = [String]()
+    var groups  = [MessageGroup]()
 
     
     private init() {
