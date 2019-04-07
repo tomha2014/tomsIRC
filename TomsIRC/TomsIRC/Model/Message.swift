@@ -20,23 +20,21 @@ struct Message {
     var channelName: String
     let messageSender: MessageSender
     var timeStamp:Date
-    let groupID:Int
     
-    init(message: String, messageSender: MessageSender, username: String, groupID:Int) {
+    
+    init(message: String, messageSender: MessageSender, username: String) {
         self.message = message.withoutWhitespace()
         self.messageSender = messageSender
         self.senderUsername = username
         self.channelName = ""
         self.timeStamp = Date()
-        self.groupID = groupID
     }
     
-    init(message: String, messageSender: MessageSender, username: String, date:Date, groupID:Int) {
+    init(message: String, messageSender: MessageSender, username: String, date:Date) {
         self.message = message.withoutWhitespace()
         self.messageSender = messageSender
         self.senderUsername = username
         self.channelName = ""
         self.timeStamp = date
-        self.groupID = groupID
     }
 }

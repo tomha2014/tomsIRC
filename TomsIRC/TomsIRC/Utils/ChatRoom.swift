@@ -206,6 +206,7 @@ extension ChatRoom: StreamDelegate {
                         message.senderUsername = userName!
 //                        delegate?.receivedMessage(message: message)
                         saveMessage(channel: channel, from: userName!, message: message.message)
+                        NotificationCenter.default.post(name: .NewMessageRecieved, object: message)
                         return
                     }
                     if ( cmd == "JOIN" )
@@ -408,7 +409,7 @@ extension ChatRoom: StreamDelegate {
             }
         }
         
-        return Message(message: message, messageSender: MessageSender.someoneElse, username: "server",date: Date(), groupID: Settings.shared.todaysGroupID)
+        return Message(message: message, messageSender: MessageSender.someoneElse, username: "server",date: Date() )
         
     }
     

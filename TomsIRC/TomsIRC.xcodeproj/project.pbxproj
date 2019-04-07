@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020994F622567F53003430F4 /* GroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020994F522567F53003430F4 /* GroupManager.swift */; };
 		020A7D9E22528DE200675282 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7D9D22528DE200675282 /* Notifications.swift */; };
 		020A7DA022529A3200675282 /* ChannelPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7D9F22529A3200675282 /* ChannelPickerViewController.swift */; };
 		020A7DA22252DD4400675282 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020A7DA12252DD4400675282 /* MessageTableViewCell.swift */; };
@@ -14,6 +15,7 @@
 		025242492253A38E00B1C2FC /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025242482253A38E00B1C2FC /* NSMutableAttributedString.swift */; };
 		0252424B2253AA2500B1C2FC /* CmdMsg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0252424A2253AA2500B1C2FC /* CmdMsg.swift */; };
 		0255E7DF225538D20035F0B7 /* MessageGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0255E7DE225538D20035F0B7 /* MessageGroup.swift */; };
+		027213F52259A0EF004E2D2E /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027213F42259A0EF004E2D2E /* UIColor.swift */; };
 		029D5A77225255F800CAB0D1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A76225255F800CAB0D1 /* AppDelegate.swift */; };
 		029D5A7C225255F800CAB0D1 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A7B225255F800CAB0D1 /* MasterViewController.swift */; };
 		029D5A7E225255F800CAB0D1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 029D5A7D225255F800CAB0D1 /* DetailViewController.swift */; };
@@ -62,6 +64,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		020994F522567F53003430F4 /* GroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupManager.swift; sourceTree = "<group>"; };
 		020A7D9D22528DE200675282 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		020A7D9F22529A3200675282 /* ChannelPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelPickerViewController.swift; sourceTree = "<group>"; };
 		020A7DA12252DD4400675282 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
@@ -69,6 +72,7 @@
 		025242482253A38E00B1C2FC /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		0252424A2253AA2500B1C2FC /* CmdMsg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CmdMsg.swift; sourceTree = "<group>"; };
 		0255E7DE225538D20035F0B7 /* MessageGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageGroup.swift; sourceTree = "<group>"; };
+		027213F42259A0EF004E2D2E /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		029D5A73225255F800CAB0D1 /* TomsIRC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TomsIRC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		029D5A76225255F800CAB0D1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		029D5A79225255F800CAB0D1 /* TomsIRC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TomsIRC.xcdatamodel; sourceTree = "<group>"; };
@@ -218,6 +222,7 @@
 				029D5AAF225256FE00CAB0D1 /* StringExtension.swift */,
 				020A7D9D22528DE200675282 /* Notifications.swift */,
 				025242482253A38E00B1C2FC /* NSMutableAttributedString.swift */,
+				027213F42259A0EF004E2D2E /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 			children = (
 				029D5AC72252572400CAB0D1 /* dbStore.swift */,
 				029D5AB3225256FE00CAB0D1 /* ChatRoom.swift */,
+				020994F522567F53003430F4 /* GroupManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -512,6 +518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				020A7D9E22528DE200675282 /* Notifications.swift in Sources */,
+				027213F52259A0EF004E2D2E /* UIColor.swift in Sources */,
 				020A7DA42252DDD900675282 /* Layouts.swift in Sources */,
 				029D5A77225255F800CAB0D1 /* AppDelegate.swift in Sources */,
 				029D5ADF2252786100CAB0D1 /* ChannelTableViewCell.swift in Sources */,
@@ -522,6 +529,7 @@
 				029D5ADB22525EC600CAB0D1 /* IRCMessage+CoreDataProperties.swift in Sources */,
 				029D5ADD22525EC600CAB0D1 /* Event+CoreDataProperties.swift in Sources */,
 				029D5AB8225256FE00CAB0D1 /* Date.swift in Sources */,
+				020994F622567F53003430F4 /* GroupManager.swift in Sources */,
 				029D5AD822525EC600CAB0D1 /* IRCChannel+CoreDataClass.swift in Sources */,
 				029D5ADC22525EC600CAB0D1 /* Event+CoreDataClass.swift in Sources */,
 				0252424B2253AA2500B1C2FC /* CmdMsg.swift in Sources */,

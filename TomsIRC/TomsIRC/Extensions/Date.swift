@@ -48,4 +48,14 @@ extension Date {
         return df.string(from: self)
     }
     
+    func isToday() -> Bool {
+        
+        if (toDateString() == Date().toDateString())
+        {
+            return true
+        }
+        
+        return false
+    }
+    
 }

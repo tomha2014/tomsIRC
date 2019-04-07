@@ -14,4 +14,5 @@ extension Notification.Name {
     static let readyToLogin = Notification.Name("readyToLogin")
     static let commandRecieved = Notification.Name("commandRecieved")
     static let updateMasterChannelList = Notification.Name("updateMasterChannelList")
+    static let NewMessageRecieved = Notification.Name("NewMessageRecieved")
 }

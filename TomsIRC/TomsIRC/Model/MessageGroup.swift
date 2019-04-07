@@ -16,6 +16,15 @@ class MessageGroup
     var msgCount:Int = 0
     var messages = [Message]()
     
+    func getMessageCount() -> Int {
+        return messages.count
+    }
+    
+    func getMessageByIndex(index:Int) -> Message {
+        
+        return messages[index]
+    }
+    
     init(date:Date, id:Int) {
         
         self.date = date
@@ -28,7 +37,7 @@ class MessageGroup
         }
         
         let dateFormatterGet = DateFormatter()
-        dateFormatterGet.dateFormat = "MMMM dd"
+        dateFormatterGet.dateFormat = "MMMM d"
         self.name = dateFormatterGet.string(from: date)
     }
 }
