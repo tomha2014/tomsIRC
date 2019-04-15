@@ -13,6 +13,7 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
+    var alertDlg:UIAlertController = UIAlertController(title: "Start", message: "Please wait while I connect to your IRC sever", preferredStyle: .alert)
     var window: UIWindow?
     public var channels: [NSManagedObject] = []
 
@@ -48,10 +49,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
+        
         if Settings.shared.okToConnect()
         {
             if (!Settings.shared.connected())
             {
+                self.window?.rootViewController!.present(self.alertDlg, animated: true)
                 Settings.shared.chatroom.setupNetworkCommunication()
             }
         }
@@ -109,6 +112,7 @@ extension AppDelegate {
 //            Settings.shared.chatroom.listChannels()
         }
         
+        self.alertDlg.dismiss(animated: true, completion: nil)
     }
     
     @objc func channelListComplete(_ notification:Notification) {
@@ -121,8 +125,13 @@ extension AppDelegate {
         
     }
     
+    
+    
     @objc func readyToLogin(_ notification:Notification) {
         // Do something now
+        
+//        self.alertDlg = UIAlertController(title: "Start", message: "Please wait while I connect to your sever", preferredStyle: .alert)
+        
         
         Settings.shared.chatroom.loginMode = true
         var message = "NICK \(Settings.shared.userName)"
@@ -142,7 +151,6 @@ extension AppDelegate {
         if (cmdCode.cmd == "465")
         {
             let alert = UIAlertController(title: "Alert", message: cmdCode.msg, preferredStyle: .alert)
-
             self.window?.rootViewController!.present(alert, animated: true, completion: nil)
         }
         
@@ -177,9 +185,8 @@ extension AppDelegate {
         }
     }
     
-    func joinChannels()  {
-        
-        
+    func joinChannels()
+    {
         
         let predicate = NSPredicate(format: "subscribed == true" )
         let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
