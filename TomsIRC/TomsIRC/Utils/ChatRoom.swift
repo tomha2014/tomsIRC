@@ -261,10 +261,15 @@ extension ChatRoom: StreamDelegate {
     //                            print ("\(cmdCode)  \(p.last!.components(separatedBy: ":").last!)")
                             }
                             
-                            if (cmdCode == "465")
-                            {
-                                print("Banded")
-                            }
+//                            if (cmdCode == "465")
+//                            {
+//                                print("Banded")
+//                            }
+//                            
+//                            if (cmdCode == "INVITE")
+//                            {
+//                                print ("you have an invation")
+//                            }
                             
                             NotificationCenter.default.post(name: .commandRecieved, object: CmdMsg(cmd: cmdCode, msg: message.message))
                             
@@ -428,6 +433,13 @@ extension ChatRoom: StreamDelegate {
         let data = "\(message)\n\r".data(using: .ascii)!
         _ = data.withUnsafeBytes { outputStream.write($0, maxLength: data.count) }
         
+    }
+
+func sendQuitCommand()
+    {
+        let msg = "Goodbye for now!"
+        print ( "=======>>  QUIT \(msg)")
+        sendCmd(message: "QUIT \(msg)")
     }
     
     func joinChannel(channelName: String) {

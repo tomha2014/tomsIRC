@@ -15,8 +15,8 @@ class ChannelPickerViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var searchActive:Bool = false
-//    private let refreshControl = UIRefreshControl()
-public var AllChannels: [NSManagedObject] = []
+    private let refreshControl = UIRefreshControl()
+    public var AllChannels: [NSManagedObject] = []
     
     
     override func viewDidLoad() {
@@ -40,14 +40,17 @@ public var AllChannels: [NSManagedObject] = []
         
         AllChannels = try! dbStore.shared.context.fetch(request)
         
-//        if #available(iOS 10.0, *) {
-//            tableView.refreshControl = refreshControl
-//        } else {
-//            tableView.addSubview(refreshControl)
-//        }
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
         
         self.navigationItem.title = "Channel Tuner"
-//        refreshControl.addTarget(self, action: #selector(refreshChannelList(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(self.refreshChannelList(_:)), for: .valueChanged)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateChannelListComplete(_:)), name: .channelListComplete, object: nil)
+
         
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addChannel))
         
@@ -76,6 +79,9 @@ public var AllChannels: [NSManagedObject] = []
             }
         }
     }
+    
+    
+    
 //    @objc private func addChannel(_ sender: Any) {
 //        Settings.shared.chatroom.save(name: "BubbleTest", count: 0, desc: "Bubble Test channel")
 //         dbStore.shared.Save()
@@ -91,10 +97,14 @@ public var AllChannels: [NSManagedObject] = []
 //        self.tableView.reloadData()
 //    }
     
+    
+    
+
+    
     @objc private func refreshChannelList(_ sender: Any) {
         // Fetch Weather Data
         Settings.shared.chatroom.listChannels()
-//        refreshControl.beginRefreshing()
+        refreshControl.beginRefreshing()
         
     }
     
@@ -216,33 +226,14 @@ extension ChannelPickerViewController: UITableViewDataSource {
     }
 }
 
-//extension ChannelPickerViewController: ChatRoomDelegate {
-//
-//    func commandReceived(cmd: String) {
-//
-//    }
-//    func LoginComplete() {
-//        Settings.shared.chatroom.listChannels()
-//    }
-//
-//    func receivedMessage(message: Message) {
-//        //        insertNewMessageCell(message)
-//    }
-//
-//    func sentMessage(message: String) {
-//        //        insertNewMessageCell( Message(message: message, messageSender: MessageSender.ourself, username: username))
-//    }
-//
-//
-//
-//    func channelListComplete()  {
-//        let predicate = NSPredicate(format: "subscribed == false" )
-//        let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
-////        request.predicate = predicate
-//
-////        refreshControl.endRefreshing()
-//        Settings.shared.channels = try! dbStore.shared.context.fetch(request)
-//        self.tableView.reloadData()
-//    }
-//
-//}
+extension ChannelPickerViewController {
+
+    @objc func updateChannelListComplete(_ notification:Notification) {
+        refreshControl.endRefreshing()
+        
+        let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
+        AllChannels = try! dbStore.shared.context.fetch(request)
+        self.tableView.reloadData()
+    }
+
+}

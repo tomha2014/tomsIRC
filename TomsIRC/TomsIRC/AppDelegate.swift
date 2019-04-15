@@ -37,6 +37,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        Settings.shared.chatroom.sendQuitCommand()
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -59,6 +61,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
+        Settings.shared.chatroom.sendQuitCommand()
         dbStore.shared.Save()
         Settings.shared.chatroom.stopChatSession()
     }
@@ -142,9 +145,41 @@ extension AppDelegate {
 
             self.window?.rootViewController!.present(alert, animated: true, completion: nil)
         }
+        
+        if (cmdCode.cmd=="INVITE")
+        {
+            
+            let parts = cmdCode.msg.split(separator: ":")
+            
+            let msg = "Would you like to join channel :"+parts.last!            
+            
+            let alert = UIAlertController(title: "Invitation", message: msg, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                let channel = IRCChannel(context: dbStore.shared.context)
+                channel.name = String(parts.last!)
+                channel.count = Int32(-1)
+                channel.desc = ""
+                channel.serverID = Settings.shared.serverID
+                channel.subscribed = true
+                dbStore.shared.Save()
+                
+                let splitViewController = self.window!.rootViewController as! UISplitViewController
+                let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
+                let controller = masterNavigationController.topViewController as! MasterViewController
+                controller.refreshUI()
+                
+                Settings.shared.chatroom.joinChannel(channelName: channel.name!)
+                Settings.shared.joinedChannels.append(channel.name!)
+            }))
+            
+            self.window?.rootViewController!.present(alert, animated: true)
+        }
     }
     
     func joinChannels()  {
+        
+        
         
         let predicate = NSPredicate(format: "subscribed == true" )
         let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()

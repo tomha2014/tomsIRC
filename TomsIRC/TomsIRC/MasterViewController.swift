@@ -121,6 +121,34 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         
         
     }
+    
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?
+    {
+        
+        let subscribeAction = UITableViewRowAction(style: .default, title: "un-Subscribe" , handler: { (action:UITableViewRowAction, indexPath:IndexPath) -> Void in
+            
+            let channel = self.channels[indexPath.row] as! IRCChannel
+//            let channel = Settings.shared.channels[indexPath.row] as! IRCChannel
+            channel.subscribed = false
+            dbStore.shared.Save()
+            
+            Settings.shared.LeaveChannel(channelName: channel.name!)
+            
+            //            let i = Settings.shared.joinedChannels.firstIndex(of: channel.name!)
+            //            Settings.shared.joinedChannels.remove(at: i!)
+            //            Settings.shared.chatroom.leaveChannel(channelName: channel.name!)
+            
+            let predicate = NSPredicate(format: "subscribed == true" )
+            let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
+            request.predicate = predicate
+            
+            self.refreshUI()
+            
+        })
+        
+        return [ subscribeAction ]
+    }
 }
 
 extension MasterViewController {
@@ -129,6 +157,10 @@ extension MasterViewController {
     }
     
     @objc func updateMasterChannelList(_ notification:Notification) {
+        refreshUI()
+    }
+    
+    func refreshUI()  {
         let predicate = NSPredicate(format: "subscribed == true" )
         let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
         request.predicate = predicate
