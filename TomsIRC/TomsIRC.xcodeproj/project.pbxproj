@@ -189,6 +189,7 @@
 				029D5A84225255F900CAB0D1 /* LaunchScreen.storyboard */,
 				029D5A87225255F900CAB0D1 /* Info.plist */,
 				029D5A78225255F800CAB0D1 /* TomsIRC.xcdatamodeld */,
+				020994F522567F53003430F4 /* GroupManager.swift */,
 			);
 			path = TomsIRC;
 			sourceTree = "<group>";
@@ -232,7 +233,6 @@
 			children = (
 				029D5AC72252572400CAB0D1 /* dbStore.swift */,
 				029D5AB3225256FE00CAB0D1 /* ChatRoom.swift */,
-				020994F522567F53003430F4 /* GroupManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
