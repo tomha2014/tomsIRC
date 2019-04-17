@@ -35,6 +35,8 @@ class GroupManager {
     
     func buildOutTableDate(channelName:String)  {
         
+        groups.removeAll()
+        
         let predicate = NSPredicate(format: "channelName == '\(channelName)'" )
         let request: NSFetchRequest<IRCMessage> = IRCMessage.fetchRequest()
         request.predicate = predicate

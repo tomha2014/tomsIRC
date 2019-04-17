@@ -41,22 +41,30 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UFY-VW-Sv3">
                                 <rect key="frame" x="0.0" y="797" width="414" height="65"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HbR-r8-H6o">
-                                        <rect key="frame" x="8" y="17" width="315" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HbR-r8-H6o">
+                                        <rect key="frame" x="8" y="17" width="326" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J51-Me-cqC">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J51-Me-cqC">
                                         <rect key="frame" x="353" y="17" width="36" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendButtonPressed:" destination="JEX-9P-axG" eventType="touchUpInside" id="B3E-U5-Wzk"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="J51-Me-cqC" secondAttribute="bottom" constant="18" id="At1-QD-srE"/>
+                                    <constraint firstItem="HbR-r8-H6o" firstAttribute="leading" secondItem="UFY-VW-Sv3" secondAttribute="leading" constant="8" id="NDB-ke-kdi"/>
+                                    <constraint firstItem="J51-Me-cqC" firstAttribute="leading" secondItem="HbR-r8-H6o" secondAttribute="trailing" constant="19" id="QU0-8v-j4q"/>
+                                    <constraint firstAttribute="bottom" secondItem="HbR-r8-H6o" secondAttribute="bottom" constant="18" id="n4T-N9-K8M"/>
+                                    <constraint firstItem="J51-Me-cqC" firstAttribute="top" secondItem="UFY-VW-Sv3" secondAttribute="top" constant="17" id="qP0-Lr-2V6"/>
                                     <constraint firstAttribute="height" constant="65" id="vcu-F9-rIH"/>
+                                    <constraint firstItem="HbR-r8-H6o" firstAttribute="top" secondItem="UFY-VW-Sv3" secondAttribute="top" constant="17" id="xDe-wV-f4N"/>
+                                    <constraint firstAttribute="trailing" secondItem="J51-Me-cqC" secondAttribute="trailing" constant="25" id="yhU-td-7w5"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -81,6 +89,8 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
+                        <outlet property="inputArea" destination="UFY-VW-Sv3" id="eNz-Nw-fLx"/>
+                        <outlet property="sendTextInput" destination="HbR-r8-H6o" id="AFY-18-GF0"/>
                         <outlet property="tableView" destination="M1X-Ns-ITr" id="2mh-aR-mR2"/>
                     </connections>
                 </viewController>

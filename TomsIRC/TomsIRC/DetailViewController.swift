@@ -13,11 +13,9 @@ import CoreData
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-    @IBOutlet weak var textInput: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    
-    
+    @IBOutlet weak var inputArea: UIView!
+    @IBOutlet weak var sendTextInput: UITextField!
     
 //    var messages = [Message]()
     public var channelName = ""
@@ -28,7 +26,7 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let detail = detailItem {
             self.channelName = detail.name!
-            print (detail.name)
+//            print (detail.name)
             self.tableView.reloadData()
         }
     }
@@ -81,13 +79,24 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func sendButtonPressed(_ sender: Any) {
-        let txt = self.textInput.text
+        let txt = sendTextInput!.text
         if ((txt?.count)!>0)
         {
+            let msg1 = Message(message: txt!, messageSender: MessageSender.ourself, username: Settings.shared.userName)
             
             Settings.shared.chatroom.sendMessage(message: txt!, channelName: self.channelName)
-            insertNewMessageCell( Message(message: txt!, messageSender: MessageSender.ourself, username: Settings.shared.userName))
-            self.textInput.text = ""
+            
+            let msg = IRCMessage(context: dbStore.shared.context)
+            msg.timestamp = Date() as NSDate
+            msg.timestampMilli = Int64( Date().millisecondsSince1970 )
+            msg.channelName = channelName
+            msg.from = Settings.shared.userName
+            msg.message = txt!
+            dbStore.shared.Save()
+            
+            insertNewMessageCell( msg1 )
+            
+            self.sendTextInput.text = ""
         }
     }
     
@@ -180,6 +189,7 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate
     
     func insertNewMessageCell(_ message: Message) {
         
+        grpManger.buildOutTableDate(channelName: channelName)
         self.tableView.reloadData()
     
         

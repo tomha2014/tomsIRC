@@ -410,7 +410,7 @@ extension ChatRoom: StreamDelegate {
                 for cmd in cmds{
                     print (cmd)
                 }
-                print("done")
+//                print("done")
             }
         }
         
