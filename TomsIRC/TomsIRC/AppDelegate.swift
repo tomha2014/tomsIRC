@@ -13,7 +13,7 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
-    var alertDlg:UIAlertController = UIAlertController(title: "Start", message: "Please wait while I connect to your IRC sever", preferredStyle: .alert)
+    var alertDlg:UIAlertController = UIAlertController(title: "Start up", message: "Please wait while I connect to your IRC sever", preferredStyle: .alert)
     var window: UIWindow?
     public var channels: [NSManagedObject] = []
 
@@ -90,8 +90,17 @@ extension AppDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(channelListComplete(_:)), name: .channelListComplete, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(readyToLogin(_:)), name: .readyToLogin, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(commandRecieved(_:)), name: .commandRecieved, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(NewPrivateMessageRecieved(_:)), name: .NewPrivateMessageRecieved, object: nil)
 
     }
+    
+    @objc func NewPrivateMessageRecieved(_ notification:Notification) {
+        
+        print ("new private mesg")
+
+    }
+    
     
     @objc func loginComplete(_ notification:Notification) {
         // Do something now
@@ -207,10 +216,3 @@ extension AppDelegate {
     
 
 }
-
-//extension AppDelegate: ChatRoomDelegate {
-//
-//    func commandReceived(cmd: String) {}
-//    func receivedMessage(message: Message) {}
-//    func sentMessage(message: String) {}
-//}

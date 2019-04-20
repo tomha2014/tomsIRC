@@ -201,13 +201,24 @@ extension ChatRoom: StreamDelegate {
                     
                     if ( cmd == "PRIVMSG" )
                     {
-                        message.channelName = channel
-                        message.message = d.trimmingCharacters(in: .whitespacesAndNewlines)
-                        message.senderUsername = userName!
-//                        delegate?.receivedMessage(message: message)
-                        saveMessage(channel: channel, from: userName!, message: message.message)
-                        NotificationCenter.default.post(name: .NewMessageRecieved, object: message)
-                        return
+                        if (channel == Settings.shared.userName)
+                        {
+                            message.channelName = channel
+                            message.message = d.trimmingCharacters(in: .whitespacesAndNewlines)
+                            message.senderUsername = userName!
+                            
+                            NotificationCenter.default.post(name: .NewPrivateMessageRecieved, object: message)
+
+                        }
+                        else
+                        {
+                            message.channelName = channel
+                            message.message = d.trimmingCharacters(in: .whitespacesAndNewlines)
+                            message.senderUsername = userName!
+                            saveMessage(channel: channel, from: userName!, message: message.message)
+                            NotificationCenter.default.post(name: .NewMessageRecieved, object: message)
+                            return
+                        }
                     }
                     if ( cmd == "JOIN" )
                     {

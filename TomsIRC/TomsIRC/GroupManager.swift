@@ -37,7 +37,7 @@ class GroupManager {
         
         groups.removeAll()
         
-        let predicate = NSPredicate(format: "channelName == '\(channelName)'" )
+        let predicate = NSPredicate(format: "channelName like[c] '\(channelName)'" )
         let request: NSFetchRequest<IRCMessage> = IRCMessage.fetchRequest()
         request.predicate = predicate
         let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: true)

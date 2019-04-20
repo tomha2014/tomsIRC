@@ -26,7 +26,8 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let detail = detailItem {
             self.channelName = detail.name!
-//            print (detail.name)
+            print (detail.name)
+            print (self.channelName)
             self.tableView.reloadData()
         }
     }
@@ -61,6 +62,8 @@ class DetailViewController: UIViewController {
         super.viewDidAppear(animated)
         
         self.navigationItem.title = self.channelName;
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
         self.tableView.separatorColor = .clear
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)        
@@ -70,17 +73,25 @@ class DetailViewController: UIViewController {
     }
     
     @objc func NewMessageRecieved(_ notification:Notification) {
+        
+        if (self.channelName == "")
+        {
+            return
+        }
+        
         let msg = notification.object as! Message
         
-        if (msg.channelName == channelName)
-        {
+//        print (">>>>> " + msg.channelName + "   >>> " + self.channelName)
+        
+        if(self.channelName.caseInsensitiveCompare(msg.channelName) == .orderedSame){
             insertNewMessageCell(msg)
         }
+        
     }
     
     @IBAction func sendButtonPressed(_ sender: Any) {
         let txt = sendTextInput!.text
-        if ((txt?.count)!>0)
+        if ( (txt!.count) > 0 )
         {
             let msg1 = Message(message: txt!, messageSender: MessageSender.ourself, username: Settings.shared.userName)
             

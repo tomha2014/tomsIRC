@@ -15,4 +15,5 @@ extension Notification.Name {
     static let commandRecieved = Notification.Name("commandRecieved")
     static let updateMasterChannelList = Notification.Name("updateMasterChannelList")
     static let NewMessageRecieved = Notification.Name("NewMessageRecieved")
+    static let NewPrivateMessageRecieved = Notification.Name("NewPrivateMessageRecieved")
 }

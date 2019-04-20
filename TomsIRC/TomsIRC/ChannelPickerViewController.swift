@@ -159,6 +159,7 @@ extension ChannelPickerViewController: UISearchBarDelegate{
         searchActive = false;
     }
     
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
         let request: NSFetchRequest<IRCChannel> = IRCChannel.fetchRequest()
@@ -168,6 +169,23 @@ extension ChannelPickerViewController: UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
+        
+        let txt = "#"+searchBar.text!
+        
+        let channel = IRCChannel(context: dbStore.shared.context)
+        channel.name = txt
+        channel.count = -1
+        channel.desc = ""
+        channel.serverID = Settings.shared.serverID
+        channel.subscribed = true
+        
+        dbStore.shared.Save()
+        
+        NotificationCenter.default.post(name: .updateMasterChannelList, object:nil)
+        
+        Settings.shared.chatroom.joinChannel(channelName: txt)
+        
+        
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
